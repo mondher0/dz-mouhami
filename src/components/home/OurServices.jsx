@@ -62,8 +62,11 @@ const OurServices = () => {
           </p>
         </div>
         <div className="flex flex-col items-start justify-center gap-6 p-[35px] w-2/4 border-r-solid border-l-2 border-[#FFC700] ">
-          {services.map((service) => (
-            <div className="flex flex-col items-start justify-between ">
+          {services.map((service, index) => (
+            <div
+              className="flex flex-col items-start justify-between "
+              key={index}
+            >
               <Image src={service.icons} alt="icons" width={70} height={70} />
               <div>
                 <p className="text-[#FFC700] font-medium text-[25px]">
@@ -78,9 +81,18 @@ const OurServices = () => {
         </div>
       </div>
       <div className="flex items-center">
-        {features.map((feature) => (
-          <div className="flex flex-col items-center justify-center gap-6 p-[35px] w-2/4 border-r-solid border-l-2 border-[#FFC700] h-[200px]">
-            <Image src={feature.icons} alt="icons" width={100} height={80} className="mt-3" />
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center gap-6 p-[35px] w-2/4 border-r-solid border-l-2 border-[#FFC700] h-[200px] pb[10px]"
+          >
+            <Image
+              src={feature.icons}
+              alt="icons"
+              width={100}
+              height={80}
+              className="mt-3"
+            />
             <p className="text-[#FFC700] font-medium text-[25px] text-center">
               {feature.title}
             </p>

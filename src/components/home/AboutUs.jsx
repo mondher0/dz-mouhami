@@ -20,7 +20,7 @@ const AboutUs = () => {
         alt="About Us"
         width={600}
         height={600}
-        className="mt-6"
+        className="mt-6 mb-6"
       />
     </section>
   );
