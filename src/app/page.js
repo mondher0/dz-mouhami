@@ -1,4 +1,5 @@
 import AboutUs from "@/components/home/AboutUs";
+import ContactUs from "@/components/home/ContactUs";
 import HomeHero from "@/components/home/HomeHero";
 import LoyerSection from "@/components/home/LoyerSection";
 import OurServices from "@/components/home/OurServices";
@@ -12,6 +13,7 @@ export default function Home() {
       <OurServices />
       <TopRatedLoyers />
       <LoyerSection />
+      <ContactUs />
     </>
   );
 }
