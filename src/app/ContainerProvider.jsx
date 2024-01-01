@@ -3,10 +3,10 @@ import React from "react";
 
 const ContainerProvider = ({ children }) => {
   return (
-    <div className="container">
+    <>
       <NavBar />
       {children}
-    </div>
+    </>
   );
 };
 

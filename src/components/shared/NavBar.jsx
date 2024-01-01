@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MainButton from "./MainButton";
+import { Button } from "../ui/button";
 
 const NavBar = () => {
   const navLinks = [
@@ -11,20 +12,20 @@ const NavBar = () => {
     { name: "CONTACT", href: "/" },
   ];
   return (
-    <header className="flex justify-between items-center">
+    <header className="container flex justify-between items-center">
       <div>
         <Image src={"/assets/logo.svg"} alt="logo" width={100} height={100} />
       </div>
-      <ul className="flex items-center gap-5">
+      <ul className="flex items-center gap-10">
         {navLinks.map((navLink, index) => {
           return (
-            <li key={index} className="text-[#FFF] text-[18px]">
+            <li key={index} className="text-[#FFF] text-[18px] font-bold">
               <Link href={navLink.href}>{navLink.name}</Link>
             </li>
           );
         })}
       </ul>
-      <MainButton text={"SIGN IN"} />
+      <Button>SIGN IN</Button>
     </header>
   );
 };
