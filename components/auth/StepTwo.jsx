@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setActivStep } from "../../store/features/auth/auth-slice";
 import PdfAsset from "./PdfAsset";
 import DispoTable from "./DispoTable";
+import LocationMap from "./LocationMap";
 
 const StepTwo = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const StepTwo = () => {
           <p className="text-white text-[18px] font-semibold">
             Goegraphical location :
           </p>
+          <LocationMap />
         </div>
         <div className="w-1/2">
           <label

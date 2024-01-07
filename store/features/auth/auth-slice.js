@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   activeStep: 0,
+  position: [51.505, -0.09],
   fullName: "",
   email: "",
   password: "",
@@ -50,7 +51,10 @@ const authSlice = createSlice({
     setActivStep: (state, action) => {
       state.activeStep = action.payload;
     },
+    setPostion: (state, action) => {
+      state.position = action.payload;
+    },
   },
 });
-export const { setUser, setActivStep } = authSlice.actions;
+export const { setUser, setActivStep, setPostion } = authSlice.actions;
 export default authSlice.reducer;
