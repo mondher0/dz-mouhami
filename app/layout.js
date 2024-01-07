@@ -1,11 +1,14 @@
 import "./globals.css";
 import ContainerProvider from "./ContainerProvider";
+import StoreProvider from "./StoreProvider";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ContainerProvider>{children}</ContainerProvider>
+        <StoreProvider>
+          <ContainerProvider>{children}</ContainerProvider>
+        </StoreProvider>
       </body>
     </html>
   );
