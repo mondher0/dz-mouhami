@@ -17,8 +17,10 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-form-stepper": "^2.0.3",
     "react-icons": "^4.12.0",
     "react-redux": "^9.0.4",
+    "react-stepper-horizontal": "^1.0.11",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import LoyerRegister from "../../components/auth/LoyerRegister";
+import ChangeUser from "../../components/auth/ChangeUser";
 
 const LoyerRegisterPage = () => {
   return (
-    <div>LoyerRegisterPage</div>
-  )
-}
+    <div className="flex bg-white">
+      <LoyerRegister />
+      <ChangeUser user="loyer"/>
+    </div>
+  );
+};
 
-export default LoyerRegisterPage
+export default LoyerRegisterPage;
