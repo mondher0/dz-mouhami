@@ -1,8 +1,45 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  activeStep: 0,
+  activeStep: 1,
   position: [51.505, -0.09],
+  disponibility: [
+    {
+      id: 1,
+      day: "Dim",
+      hours: ["8:00-10:00"],
+    },
+    {
+      id: 1,
+      day: "Lun",
+      hours: [],
+    },
+    {
+      id: 1,
+      day: "Mar",
+      hours: [],
+    },
+    {
+      id: 1,
+      day: "Mer",
+      hours: [],
+    },
+    {
+      id: 1,
+      day: "Jeu",
+      hours: [],
+    },
+    {
+      id: 1,
+      day: "Ven",
+      hours: [],
+    },
+    {
+      id: 1,
+      day: "Sam",
+      hours: [],
+    },
+  ],
   fullName: "",
   email: "",
   password: "",
@@ -54,7 +91,22 @@ const authSlice = createSlice({
     setPostion: (state, action) => {
       state.position = action.payload;
     },
+    setDisponibility: (state, action) => {
+      console.log(action);
+      const { payload } = action;
+      const { day, hour } = payload;
+      const index = state.disponibility.findIndex((d) => d.day === day);
+      // verif if the hour exist in the array of hours we delete it
+      const indexHour = state.disponibility[index].hours.indexOf(hour.hour);
+      if (indexHour !== -1) {
+        state.disponibility[index].hours.splice(indexHour, 1);
+      } else {
+        state.disponibility[index].hours.push(hour.hour);
+      }
+      console.log(state.disponibility);
+    },
   },
 });
-export const { setUser, setActivStep, setPostion } = authSlice.actions;
+export const { setUser, setActivStep, setPostion, setDisponibility } =
+  authSlice.actions;
 export default authSlice.reducer;

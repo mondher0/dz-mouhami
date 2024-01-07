@@ -1,13 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
+import Check from "./Check";
+import { setDisponibility } from "../../store/features/auth/auth-slice";
+
 const DispoTable = () => {
-  const days = [
-    "Dimanche",
-    "Lundi",
-    "Mardi",
-    "Mercredi",
-    "Jeudi",
-    "Vendredi",
-    "Samedi",
-  ];
+  const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
   const hours = [
     {
       id: 1,
@@ -30,61 +26,49 @@ const DispoTable = () => {
       hour: "18:00-20:00",
     },
   ];
+  const { disponibility } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   return (
     <div className="w-1/2">
-      {/* <table
-        className="
-        w-full
-        caption-bottom
-        text-sm
-        border-collapse
-        border-2
-        border-gray-500
-        rounded-lg
-        dark:border-gray-700
-        dark:bg-gray-700
-        text-white
-        p-[20px]
-      "
-      >
-        <thead
-          className="
-        border-b-2
-        border-gray-500
-        dark:border-gray-700
-        dark:bg-gray-700
-        text-white
-         
-        "
-        >
-          <tr
-            className="
-        border-b-2
-        border-gray-500
-        dark:border-gray-700
-        dark:bg-gray-700
-        
-          "
-          >
-            <th></th>
-            {days.map((day) => (
-              <th key={day}>{day}</th>
+      <table className="table-auto border-collapse bg-gray-300 bg-opacity-20">
+        <thead>
+          <tr>
+            <th className="border px-4 py-2 w-24 text-white border-[#FFC700]">
+              Hours/Days
+            </th>
+            {days.map((day, index) => (
+              <th
+                className="border border-[#FFC700] px-4 py-2 text-white"
+                key={index}
+              >
+                {day}
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {hours.map((hour) => (
-            <tr key={hour.id}>
-              <td>{hour.hour}</td>
-              {days.map((day) => (
-                <td key={day}>
-                  <input type="checkbox" />
+          {hours.map((hour, hourIndex) => (
+            <tr key={hourIndex}>
+              <td className="border border-[#FFC700] px-4 py-2 w-fit text-white">
+                {hour.hour}
+              </td>
+              {days.map((day, dayIndex) => (
+                <td
+                  className="border border-[#FFC700] px-4 py-2 text-white"
+                  key={dayIndex}
+                  onClick={() => dispatch(setDisponibility({ hour, day }))}
+                >
+                  {disponibility[dayIndex].hours.includes(hour.hour) ? (
+                    <Check />
+                  ) : (
+                    ""
+                  )}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-      </table> */}
+      </table>
     </div>
   );
 };
