@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  activeStep: 2,
+  activeStep: 0,
   position: [51.505, -0.09],
   disponibility: [
     {

@@ -14,7 +14,11 @@ const LoyerRegister = () => {
         SIGN IN
       </h1>
       <div>
-        <CustomStepper />
+        <CustomStepper
+          step1="Je suis un avocat"
+          step2="Infomations Personnelles"
+          step3="Congratlations"
+        />
       </div>
       {activeStep === 0 && <StepOne />}
       {activeStep === 1 && <StepTwo />}
