@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const ChangeUser = ({ user }) => {
+  const router = useRouter();
   return (
     <div
       className={`${
@@ -18,7 +20,19 @@ const ChangeUser = ({ user }) => {
           je suis un avocat
         </h1>
       )}
-      <Button size="lg">Sign in</Button>
+      <Button
+        size="lg"
+        type="button"
+        onClick={() => {
+          if (user === "loyer") {
+            router.push("/register");
+          } else {
+            router.push("/loyer-register");
+          }
+        }}
+      >
+        Sign in
+      </Button>
     </div>
   );
 };

@@ -1,8 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import MainButton from "./MainButton";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const NavBar = () => {
   const navLinks = [
@@ -11,9 +11,15 @@ const NavBar = () => {
     { name: "ABOUT", href: "/" },
     { name: "CONTACT", href: "/" },
   ];
+  const router = useRouter();
   return (
     <header className="container flex justify-between items-center">
-      <div>
+      <div
+        className="hover:cursor-pointer"
+        onClick={() => {
+          router.push("/");
+        }}
+      >
         <Image src={"/assets/logo.svg"} alt="logo" width={100} height={100} />
       </div>
       <ul className="flex items-center gap-10">
@@ -25,7 +31,13 @@ const NavBar = () => {
           );
         })}
       </ul>
-      <Button>SIGN IN</Button>
+      <Button
+        onClick={() => {
+          router.push("/register");
+        }}
+      >
+        SIGN IN
+      </Button>
     </header>
   );
 };
