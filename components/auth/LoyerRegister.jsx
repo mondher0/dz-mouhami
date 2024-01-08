@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import CustomStepper from "./CustomStepper";
-import FormControl from "./FormControl";
-import { Button } from "../ui/button";
 import StepOne from "./StepOne";
 import { useSelector } from "react-redux";
 import StepTwo from "./StepTwo";
+import StepThree from "./StepThree";
 
 const LoyerRegister = () => {
   const { activeStep } = useSelector((state) => state.auth);
@@ -19,6 +18,7 @@ const LoyerRegister = () => {
       </div>
       {activeStep === 0 && <StepOne />}
       {activeStep === 1 && <StepTwo />}
+      {activeStep === 2 && <StepThree />}
     </div>
   );
 };
