@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   activeStep: 0,
-  position: [51.505, -0.09],
+  position: [36.66364005190085, 4.91335013512071],
   disponibility: [
     {
       id: 1,
