@@ -48,7 +48,7 @@ const SideBar = () => {
             <Link key={index} href={`/loyer/${id}/${link.link}`}>
               <li
                 className={` ${
-                  path === `/loyer/${id}/${link}` && "bg-[#FFC107]"
+                  path === `/loyer/${id}/${link.link}` && "bg-[#FFC107]"
                 }   flex items-center  gap-4  p-4 w-[200px] rounded-[20px] text-white `}
               >
                 {link.icon}
