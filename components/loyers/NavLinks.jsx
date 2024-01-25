@@ -12,11 +12,11 @@ const NavLinks = () => {
     },
     {
       name: "contact",
-      link: "#",
+      link: "#contact",
     },
     {
       name: "reviews",
-      link: "#",
+      link: "#reviews",
     },
   ];
   return (
