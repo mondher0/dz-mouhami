@@ -8,7 +8,13 @@ const SingleReview = ({ review }) => {
     <div className="flex items-start gap-5 flex-col rounded-xl bg-white  shadow-md p-6 w-full">
       <div className="flex items-center gap-5">
         <div>
-          <Image src={review.user.image} width={60} height={60} alt="user" />
+          <Image
+            src={review.user.image}
+            width={60}
+            height={60}
+            alt="user"
+            priority
+          />
         </div>
         <p className="text-[#001F3F] text-[20px] font-bold">
           {review.user.name}
