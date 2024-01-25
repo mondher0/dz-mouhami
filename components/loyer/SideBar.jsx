@@ -58,7 +58,7 @@ const SideBar = () => {
           );
         })}
       </ul>
-      <button className="flex items-center justify-between gap-4 text-[18px] p-4 w-[200px] rounded-[30px] text-black bg-[#FFC107] mt-[150px]">
+      <button className="flex items-center justify-between gap-4 text-[18px] p-4 w-[200px] rounded-[30px] text-black font-bold bg-[#FFC107] mt-[150px]">
         Logout
         <IoIosLogOut />
       </button>

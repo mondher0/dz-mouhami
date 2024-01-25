@@ -14,7 +14,7 @@ const ProfileSetting = () => {
             height={250}
             className="filter blur-sm"
           />
-          <div className="absolute top-1/2 left-[37%] ">
+          <div className="absolute top-1/2 left-[27%] ">
             <label
               htmlFor="profile-pic"
               className="hover:hover text-white font-bold text-[20px]"
@@ -25,7 +25,7 @@ const ProfileSetting = () => {
           </div>
         </div>
         <div className="flex items-start flex-col gap-5 w-full">
-          <ProfileInput />
+          <ProfileInput name="display name:" type="text" id="dn" data="firstName"/>
           <Experience />
         </div>
       </div>
