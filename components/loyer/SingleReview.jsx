@@ -25,7 +25,7 @@ const SingleReview = ({ review }) => {
           })}
         </div>
       </div>
-      <p className="text-[#001F3F] text-[20px]">{review.comment}</p>
+      <p className="text-[#001F3F] text-[20px]">{review.comment} {review.comment} {review.comment}{review.comment} {review.comment} </p>
     </div>
   );
 };
