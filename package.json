@@ -12,6 +12,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@reduxjs/toolkit": "^2.0.1",
     "@tanstack/react-table": "^8.11.7",
+    "chart.js": "^4.4.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "leaflet": "^1.9.4",

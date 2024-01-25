@@ -9,7 +9,8 @@ const ContainerProvider = ({ children }) => {
   if (
     path.includes("/loyer") &&
     path != "/loyer-register" &&
-    path != "/loyer-login"
+    path != "/loyer-login" &&
+    !path.includes("/loyers")
   )
     return <LoyerContainer children={children} />;
   return (
