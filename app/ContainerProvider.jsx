@@ -6,7 +6,12 @@ import LoyerContainer from "../components/loyer/LoyerContainer";
 
 const ContainerProvider = ({ children }) => {
   const path = usePathname();
-  if (path.includes("/loyer")) return <LoyerContainer children={children} />;
+  if (
+    path.includes("/loyer") &&
+    path != "/loyer-register" &&
+    path != "/loyer-login"
+  )
+    return <LoyerContainer children={children} />;
   return (
     <>
       <NavBar />

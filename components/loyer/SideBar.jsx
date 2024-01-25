@@ -26,11 +26,11 @@ const SideBar = () => {
     {
       name: "Profile",
       icon: <AiOutlineUser size={30} />,
-      link: "profile",
+      link: "profil",
     },
   ];
   return (
-    <aside className="sticky w-[270px] h-screen flex flex-col items-start p-10">
+    <aside className="sticky top-0 w-[270px] h-screen flex flex-col items-start p-10">
       <Image src="/assets/logo.svg" width={200} height={200} />
       <ul className="flex flex-col gap-5 mt-[150px]">
         <Link href="/loyer/1">

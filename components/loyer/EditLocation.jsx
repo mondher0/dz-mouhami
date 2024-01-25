@@ -11,7 +11,7 @@ import {
 } from "react-leaflet";
 import { useDispatch, useSelector } from "react-redux";
 import { setPostion } from "../../store/features/auth/auth-slice";
-const LocationMap = () => {
+const EditLocation = () => {
   const position = useSelector((state) => state.auth.position);
   const dispatch = useDispatch();
   const customIcon = L.icon({
@@ -34,19 +34,24 @@ const LocationMap = () => {
   };
 
   return (
-    <MapContainer center={position} zoom={13}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Marker position={position} icon={customIcon}>
-        <Popup>
-          Your location = {position[0]}==={position[1]}
-        </Popup>
-      </Marker>
-      <ClickEvents />
-    </MapContainer>
+    <div className="flex flex-col items-start justify-start gap-3 w-full">
+      <label className="text-[#FFC700] text-[24px] font-semibold">
+      goegraphical location :
+      </label>
+      <MapContainer center={position} zoom={13}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={position} icon={customIcon}>
+          <Popup>
+            Your location = {position[0]}==={position[1]}
+          </Popup>
+        </Marker>
+        <ClickEvents />
+      </MapContainer>
+    </div>
   );
 };
 
-export default LocationMap;
+export default EditLocation;

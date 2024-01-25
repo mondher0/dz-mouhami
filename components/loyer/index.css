@@ -13,3 +13,6 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   border-radius: 20px;
 }
+.leaflet-container {
+  @apply h-[200px] min-w-full max-w-full sm:min-w-full md:min-w-full rounded-xl;
+}
