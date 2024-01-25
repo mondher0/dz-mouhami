@@ -37,7 +37,7 @@ const SideBar = () => {
           <li
             className={` ${
               path === `/loyer/${id}` && "bg-[#FFC107]"
-            }   flex items-center  gap-4  p-4 w-[200px] rounded-[20px] text-white`}
+            }   flex items-center  gap-4  p-4 w-[200px] rounded-[20px] text-white font-bold text-[18px]`}
           >
             <IoIosCalendar size={30} />
             Rendez vous
@@ -49,7 +49,7 @@ const SideBar = () => {
               <li
                 className={` ${
                   path === `/loyer/${id}/${link.link}` && "bg-[#FFC107]"
-                }   flex items-center  gap-4  p-4 w-[200px] rounded-[20px] text-white `}
+                }   flex items-center  gap-4  p-4 w-[200px] rounded-[20px] text-white font-bold text-[18px]`}
               >
                 {link.icon}
                 {link.name}

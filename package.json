@@ -17,6 +17,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
+    "rc-progress": "^3.5.1",
     "react": "^18",
     "react-calendar": "^4.8.0",
     "react-dom": "^18",
