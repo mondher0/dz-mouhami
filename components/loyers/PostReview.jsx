@@ -1,6 +1,5 @@
 "use client";
 import ReactStars from "react-rating-stars-component";
-import "./index.css";
 import { Button } from "../ui/button";
 
 const PostReview = () => {
