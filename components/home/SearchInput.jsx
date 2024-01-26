@@ -2,14 +2,17 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { CiSearch, CiLocationOn } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 
 const SearchInput = () => {
+  const router = useRouter();
   return (
     <form
       className="flex items-center justify-center gap-4"
       onSubmit={(e) => {
         e.preventDefault();
         console.log(e);
+        router.push(`/search?q=momo#search`);
       }}
     >
       <div className="flex items-center">
