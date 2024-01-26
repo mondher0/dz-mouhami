@@ -1,8 +1,8 @@
-import React from "react";
+"use client";
 import { FaStar } from "react-icons/fa";
 import SingleReview from "../loyer/SingleReview";
-import { Button } from "../ui/button";
 import Link from "next/link";
+import PostReview from "./PostReview";
 
 const ReviewsLoyer = () => {
   const dummyData = ["1", "2", "3", "4", "5"];
@@ -75,11 +75,7 @@ const ReviewsLoyer = () => {
           Read more
         </Link>
       </div>
-      <div className="flex items-center justify-center mt-5">
-        <Button className="font-bold">
-          <Link href="/">RATE THIS LOYER</Link>
-        </Button>
-      </div>
+      <PostReview />
     </section>
   );
 };
