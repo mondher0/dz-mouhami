@@ -11,7 +11,7 @@ const TopRatedLoyers = ({ topRatedLoyers }) => {
         LES AVOCAT LES MIEUX NOTES
       </p>
       <div className="flex items-start gap-[30px] flex-wrap justify-between">
-        {topRatedLoyers.map((topLoyer, index) => (
+        {topRatedLoyers.slice(0, 3).map((topLoyer, index) => (
           <TopRatedLoyerCard key={index} topLoyer={topLoyer} />
         ))}
         <div className="flex items-center justify-center h-[535px] w-[300px] bg-[#FFC70066] text-[#FFF] text-[40px] font-semibold hover:cursor-pointer">

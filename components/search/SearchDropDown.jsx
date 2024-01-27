@@ -12,11 +12,11 @@ import { setUser } from "../../store/features/auth/auth-slice";
 import { baseUrl, getWilaya } from "../../lib/utils";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export function SearchDropDown({ name, displayValue }) {
   const [wilayas, setWilayas] = useState();
-  // const [communes, setCommunes] = useState();
-  const [categories, setCategories] = useState();
+  const router = useRouter();
 
   // get wilaya
   const getWilaya = async () => {
@@ -24,17 +24,6 @@ export function SearchDropDown({ name, displayValue }) {
       const response = await axios.get(`${baseUrl}location/wilaya`);
       console.log(response);
       setWilayas(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // get categories
-  const getCategories = async () => {
-    try {
-      const response = await axios.get(`${baseUrl}lawyers/categories`);
-      console.log(response);
-      setCategories(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -48,6 +37,7 @@ export function SearchDropDown({ name, displayValue }) {
       className="h-5"
       onValueChange={(value) => {
         console.log(value);
+        router.push(`/search?wilaya=${value}#search`);
       }}
     >
       <SelectTrigger className="w-[280px]">

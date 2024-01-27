@@ -4,16 +4,23 @@ import { baseUrl } from "../../lib/utils";
 import Home from "../page";
 
 const SearchPage = async ({ searchParams }) => {
-  const { name, location } = searchParams || {};
-  console.log(name, location);
+  const { name, location, wilaya, category, topRated } = searchParams || {};
+  console.log(name, location, wilaya, category, topRated);
 
   // get lowyers
   const getLowyers = async () => {
     try {
       const response = await fetch(
-        `${baseUrl}lawyers/user?page=0&pageSize=100&${
-          name ? `name=${name}` : ""
-        }${location ? `&location=${location}` : ""}`,
+        `${baseUrl}lawyers/user?page=0&pageSize=100${
+          name ? `&name=${name}` : ""
+        }${location ? `&adress=${location}` : ""}${
+          wilaya ? `&wilaya_id=${wilaya}` : ""
+        }${category ? `&specialty=${category}` : ""}${
+          topRated ? "&isTopRated=true" : ""
+        }`,
+        {
+          cache: "no-cache",
+        },
       );
       const data = await response.json();
       return data;

@@ -1,6 +1,4 @@
 "use client";
-
-import { useDispatch, useSelector } from "react-redux";
 import {
   Select,
   SelectContent,
@@ -8,14 +6,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { setUser } from "../../store/features/auth/auth-slice";
-import { baseUrl, getWilaya } from "../../lib/utils";
+import { baseUrl } from "../../lib/utils";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
-export function SearchCategoriesDropDown({ name, displayValue }) {
-  // const [communes, setCommunes] = useState();
+export function SearchCategoriesDropDown({ displayValue }) {
   const [categories, setCategories] = useState();
+  const router = useRouter();
 
   // get categories
   const getCategories = async () => {
@@ -36,6 +34,7 @@ export function SearchCategoriesDropDown({ name, displayValue }) {
       className="h-5"
       onValueChange={(value) => {
         console.log(value);
+        router.push(`/search?category=${value}#search`);
       }}
     >
       <SelectTrigger className="w-[280px]">

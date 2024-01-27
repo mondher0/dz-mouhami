@@ -9,7 +9,7 @@ const TopRatedLoyerCard = ({ topLoyer }) => {
   const { fname, lname } = user || {};
   const numberOfstars = Array(rating || 0).fill(0);
   return (
-    <div className="flex flex-col items-start justify-center gap-4 border-b-[2px] border-b-[#FFC700]">
+    <div className="flex flex-col items-start justify-center gap-4 border-b-[2px] border-b-[#FFC700] w-[300px]">
       <div className="shadow-custom h-[535px] w-[300px] bg-[#D9D9D9] hover:cursor-pointer">
         <img
           src={image}

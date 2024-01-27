@@ -4,6 +4,7 @@ import { DropDown } from "../auth/DropDown";
 import { SearchDropDown } from "./SearchDropDown";
 import { CategoriesDropDown } from "../auth/CategoriesDropDown";
 import { SearchCategoriesDropDown } from "./SearchCategoriesDropDown";
+import { TopRatedLoyerDropDown } from "./TopRatedLoyerDropDown";
 
 const SearchResults = ({ lowyers }) => {
   return (
@@ -14,6 +15,7 @@ const SearchResults = ({ lowyers }) => {
       <div className="flex items-center gap-5 mt-3">
         <SearchDropDown displayValue="wilaya" />
         <SearchCategoriesDropDown displayValue="Spécialité" />
+        <TopRatedLoyerDropDown />
       </div>
       <div className="flex flex-col items-start justify-center w-full gap-5 mt-5">
         {lowyers.map((lowyer, index) => (

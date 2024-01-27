@@ -11,13 +11,7 @@ const SingleSearchItem = ({ lowyer }) => {
   const router = useRouter();
   return (
     <div className="border-solid border-[3px] border-[#FFC700] w-full p-5 flex items-center gap-5">
-      <div>
-        <img
-          src={image}
-          alt="image"
-          className="h-[210px] w-[210px] object-cover"
-        />
-      </div>
+      <img src={image} alt="image" width={210} height={210} />
       <div className="flex flex-col items-start justify-center gap-3">
         <h1 className="text-[#FFC700] text-[30px] font-bold">
           {fname} {lname}
@@ -47,7 +41,7 @@ const SingleSearchItem = ({ lowyer }) => {
       >
         Voir Le Profil{" "}
       </Button>
-    </div>  
+    </div>
   );
 };
 
