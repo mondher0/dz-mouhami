@@ -10,9 +10,9 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import { useDispatch, useSelector } from "react-redux";
-import { setPostion } from "../../store/features/auth/auth-slice";
+import { setPostion } from "../../store/features/profile/profile-slice";
 const EditLocation = () => {
-  const position = useSelector((state) => state.auth.position);
+  const position = useSelector((state) => state.profile.position);
   const dispatch = useDispatch();
   const customIcon = L.icon({
     iconUrl: "/assets/marker-icon-2x.png", // Path to your custom marker icon
@@ -36,7 +36,7 @@ const EditLocation = () => {
   return (
     <div className="flex flex-col items-start justify-start gap-3 w-full">
       <label className="text-[#FFC700] text-[24px] font-semibold">
-      goegraphical location :
+        goegraphical location :
       </label>
       <MapContainer center={position} zoom={13}>
         <TileLayer

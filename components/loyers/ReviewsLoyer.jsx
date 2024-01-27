@@ -18,7 +18,9 @@ const ReviewsLoyer = ({ lowyerReviews, id }) => {
               /5
             </p>
           </div>
-          <p className="text-[#001F3F85] text-[20px]">total reviews (60)</p>
+          <p className="text-[#001F3F85] text-[20px]">
+            total reviews ({lowyerReviews?.length})
+          </p>
         </div>
         <div className="flex flex-col gap-3">
           {dummyData.map((data, index) => {

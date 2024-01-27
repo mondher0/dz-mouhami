@@ -2,8 +2,14 @@ import React from "react";
 import ProfileInput from "./ProfileInput";
 import Experience from "./Experience";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { editProfileInfo } from "../../store/features/profile/profile-slice";
 
 const ProfileSetting = () => {
+  const { firstName, lastName, description } = useSelector(
+    (state) => state.profile,
+  );
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-col items-start justify-center w-4/5 border border-solid border-blue-900 rounded-lg bg-white shadow-md p-6">
       <div className="flex items-start gap-8">
@@ -25,7 +31,13 @@ const ProfileSetting = () => {
           </div>
         </div>
         <div className="flex items-start flex-col gap-5 w-full">
-          <ProfileInput name="display name:" type="text" id="dn" data="firstName"/>
+          <ProfileInput
+            name="display name:"
+            type="text"
+            id="dn"
+            data=""
+            value={`${firstName} ${lastName}`}
+          />
           <Experience />
         </div>
       </div>
@@ -37,12 +49,13 @@ const ProfileSetting = () => {
           rows={3}
           type="texe"
           className="w-full border border-solid border-black rounded-md bg-blue-100 p-[10px] outline-none text-[#001F3F] font-medium text-[17px] h-fit"
-        >
-          I am an experienced [Type of Law] lawyer dedicated to delivering
-          personalized legal solutions. With a focus on [Specific Area of Law],
-          I prioritize clear communication and client involvement to achieve the
-          best outcomes.
-        </textarea>
+          value={description}
+          onChange={(e) => {
+            dispatch(
+              editProfileInfo({ name: "description", value: e.target.value }),
+            );
+          }}
+        ></textarea>
       </div>
     </div>
   );

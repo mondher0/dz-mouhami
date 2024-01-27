@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import "./index.css";
 
-const ReviewsHeader = () => {
+const ReviewsHeader = ({ reviews }) => {
   const dummyData = ["1", "2", "3", "4", "5"];
   return (
     <div className="flex items-start justify-between">
@@ -14,7 +14,9 @@ const ReviewsHeader = () => {
             <span className="text-[#001F3F] text-[60px] font-bold">3.7</span>/5
           </p>
         </div>
-        <p className="text-[#001F3F85] text-[20px]">total reviews (60)</p>
+        <p className="text-[#001F3F85] text-[20px]">
+          total reviews ({reviews?.length})
+        </p>
       </div>
       <div className="flex flex-col gap-3">
         {dummyData.map((data) => {

@@ -132,7 +132,7 @@ export const login = createAsyncThunk(
         email: email,
         password: password,
       });
-      console.log(response);
+      console.log(response.data);
       setCookie("token", response.data.token);
       return response.data;
     } catch (error) {
