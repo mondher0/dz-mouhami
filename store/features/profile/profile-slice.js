@@ -21,7 +21,7 @@ const initialState = {
 
 // update loyer
 export const updateLoyer = createAsyncThunk(
-  "auth/update",
+  "profile/update",
   async (user, { rejectWithValue }) => {
     console.log(user);
     const { name, email, phone, address, password } = user;
