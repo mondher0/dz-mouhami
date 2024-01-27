@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { baseUrl } from "../../../lib/utils";
 import axios from "axios";
+import { setCookie } from "cookies-next";
 
 const initialState = {
   activeStep: 0,
@@ -132,6 +133,7 @@ export const login = createAsyncThunk(
         password: password,
       });
       console.log(response);
+      setCookie("token", response.data.token);
       return response.data;
     } catch (error) {
       console.log(error);

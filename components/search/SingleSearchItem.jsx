@@ -4,7 +4,8 @@ import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 
 const SingleSearchItem = ({ lowyer }) => {
-  const { user, address, rating, image, categorie, description } = lowyer || {};
+  const { id, user, address, rating, image, categorie, description } =
+    lowyer || {};
   const { fname, lname } = user || {};
   const { name } = categorie || {};
   const stars = Array(rating || 0).fill(0);
@@ -36,7 +37,7 @@ const SingleSearchItem = ({ lowyer }) => {
       <Button
         className="font-bold"
         onClick={() => {
-          router.push("/loyers/5");
+          router.push(`/loyers/${id}`);
         }}
       >
         Voir Le Profil{" "}

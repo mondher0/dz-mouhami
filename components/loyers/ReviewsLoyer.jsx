@@ -4,32 +4,8 @@ import SingleReview from "../loyer/SingleReview";
 import Link from "next/link";
 import PostReview from "./PostReview";
 
-const ReviewsLoyer = () => {
+const ReviewsLoyer = ({ lowyerReviews, id }) => {
   const dummyData = ["1", "2", "3", "4", "5"];
-  const dummyComments = [
-    {
-      id: 1,
-      stars: 4,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus.",
-      user: {
-        id: 1,
-        name: "Amina",
-        image: "/assets/user.svg",
-      },
-    },
-    {
-      id: 1,
-      stars: 4,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus.",
-      user: {
-        id: 1,
-        name: "Amina",
-        image: "/assets/user.svg",
-      },
-    },
-  ];
   return (
     <section id="reviews" className="p-10">
       <h1 className="text-[#FFC700] text-[40px] font-bold">Reviews</h1>
@@ -45,9 +21,9 @@ const ReviewsLoyer = () => {
           <p className="text-[#001F3F85] text-[20px]">total reviews (60)</p>
         </div>
         <div className="flex flex-col gap-3">
-          {dummyData.map((data) => {
+          {dummyData.map((data, index) => {
             return (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4" key={index}>
                 <progress
                   className="w-[300px] h-[15px] rounded-[50px] bg-red-500"
                   value="70"
@@ -66,8 +42,8 @@ const ReviewsLoyer = () => {
       </div>
       <p className="text-[#001F3F] text-[30px] font-semibold">Comments</p>
       <div className="flex flex-col items-start gap-5 w-full mt-5">
-        {dummyComments.map((data) => {
-          return <SingleReview review={data} />;
+        {lowyerReviews.map((data, index) => {
+          return <SingleReview review={data} key={index} />;
         })}
       </div>
       <div className="flex items-center justify-center mt-5">
@@ -75,7 +51,7 @@ const ReviewsLoyer = () => {
           Read more
         </Link>
       </div>
-      <PostReview />
+      <PostReview id={id} />
     </section>
   );
 };

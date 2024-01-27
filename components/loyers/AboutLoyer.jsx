@@ -1,16 +1,11 @@
 import React from "react";
 import CaseChart from "./CaseChart";
 
-const AboutLoyer = () => {
+const AboutLoyer = ({ desc }) => {
   return (
     <section id="about" className="p-10">
       <h1 className="text-[#FFC700] text-[40px] font-bold">about</h1>
-      <p className="text-[#001F3F] text-[30px]">
-        Avocat passionné du droit famille et les problèmes personnelle, fort de
-        20 années d'expérience. Mon engagement : des solutions juridiques
-        personnalisées, intègres et efficaces. Ensemble, résolvons vos problèmes
-        avec professionnalisme.
-      </p>
+      <p className="text-[#001F3F] text-[30px]">{desc}</p>
       <p className="text-[#001F3F] text-[30px] font-semibold">
         cases statistic
       </p>
@@ -34,7 +29,9 @@ const AboutLoyer = () => {
           </div>
         </div>
       </div>
-      <p className="text-center text-[#90A4AE]">Trust in our proven track record.</p>
+      <p className="text-center text-[#90A4AE]">
+        Trust in our proven track record.
+      </p>
     </section>
   );
 };

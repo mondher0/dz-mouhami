@@ -7,36 +7,20 @@ import {
   TileLayer,
   Marker,
   Popup,
-  useMapEvents,
 } from "react-leaflet";
-import { useDispatch, useSelector } from "react-redux";
-import { setPostion } from "../../store/features/auth/auth-slice";
-const DisplayLoyerLocation = () => {
-  const position = useSelector((state) => state.auth.position);
-  const dispatch = useDispatch();
+const DisplayLoyerLocation = ({ longitude, latitude }) => {
   const customIcon = L.icon({
     iconUrl: "/assets/marker-icon-2x.png", // Path to your custom marker icon
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
   });
-
-  const handleClick = (e) => {
-    const { lat, lng } = e.latlng;
-    dispatch(setPostion([lat, lng]));
-  };
-
-  const ClickEvents = () => {
-    useMapEvents({
-      click: handleClick,
-    });
-    return null;
-  };
+  const position = [latitude, longitude];
 
   return (
     <div className="flex flex-col items-start justify-start gap-3 w-full">
       <label className="text-[#FFC700] text-[24px] font-semibold">
-      goegraphical location :
+        goegraphical location :
       </label>
       <MapContainer center={position} zoom={13}>
         <TileLayer
@@ -48,7 +32,6 @@ const DisplayLoyerLocation = () => {
             Your location = {position[0]}==={position[1]}
           </Popup>
         </Marker>
-        <ClickEvents />
       </MapContainer>
     </div>
   );
