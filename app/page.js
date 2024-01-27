@@ -20,7 +20,6 @@ export default async function Home() {
   };
 
   const topRatedLoyers = await getTopRatedLoyers();
-  console.log(topRatedLoyers);
   return (
     <>
       <HomeHero />
