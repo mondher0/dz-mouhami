@@ -1,21 +1,34 @@
-import React from "react";
+"use client";
 import FormControl from "./FormControl";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/features/auth/auth-slice";
 
 const LoyerLogin = () => {
+  const { email, password, error, loading } = useSelector(
+    (state) => state.auth,
+  );
+  const dispatch = useDispatch();
   return (
     <div className="w-3/4 flex flex-col  justify-center p-[20px] gap-20 rounded-tl-none rounded-bl-none rounded-tr-3xl  rounded-br-3xl bg-[#3B372C]">
+      {error && alert(error)}
       <h1 className="text-[#FFC700] text-center text-[30px] font-semibold">
         Login
       </h1>
       <h1 className="text-white text-center text-[30px] font-semibold">
         je suis un <span className="text-[#FFC700]">Avocat</span>
       </h1>
-      <form className="flex flex-col items-center w-full gap-5">
+      <form
+        className="flex flex-col items-center w-full gap-5"
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(login({ email, password }));
+        }}
+      >
         <FormControl displayName="Email address:" type="email" name="email" />
-        <FormControl displayName="Password:" type="password" name="email" />
-        <Button size="lg">Login</Button>
+        <FormControl displayName="Password:" type="password" name="password" />
+        <Button size="lg">{loading ? "Loading..." : "Login"}</Button>
         <div className="flex flex-col gap-3">
           <p className="text-white ">
             J'accepte les{" "}

@@ -27,6 +27,7 @@ const StepTwo = () => {
     position,
     social,
     error,
+    loading,
   } = useSelector((state) => state.auth);
   return (
     <>
@@ -109,7 +110,7 @@ const StepTwo = () => {
           <LocationMap />
         </div>
         <DispoTable />
-        <Button size="lg">Next</Button>
+        <Button size="lg">{loading ? "Loading..." : "Next"}</Button>
       </form>
     </>
   );
