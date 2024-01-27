@@ -13,8 +13,8 @@ const LoyerLogin = () => {
         je suis un <span className="text-[#FFC700]">Avocat</span>
       </h1>
       <form className="flex flex-col items-center w-full gap-5">
-        <FormControl name="Email address:" type="email" />
-        <FormControl name="password:" type="password" />
+        <FormControl displayName="Email address:" type="email" name="email" />
+        <FormControl displayName="Password:" type="password" name="email" />
         <Button size="lg">Login</Button>
         <div className="flex flex-col gap-3">
           <p className="text-white ">

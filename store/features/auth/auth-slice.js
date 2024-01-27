@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { baseUrl } from "../../../lib/utils";
+import axios from "axios";
 
 const initialState = {
   activeStep: 0,
@@ -10,55 +12,109 @@ const initialState = {
       hours: ["8:00-10:00"],
     },
     {
-      id: 1,
+      id: 2,
       day: "Lun",
       hours: [],
     },
     {
-      id: 1,
+      id: 3,
       day: "Mar",
       hours: [],
     },
     {
-      id: 1,
+      id: 4,
       day: "Mer",
       hours: [],
     },
     {
-      id: 1,
+      id: 5,
       day: "Jeu",
       hours: [],
     },
     {
-      id: 1,
+      id: 6,
       day: "Ven",
       hours: [],
     },
     {
-      id: 1,
+      id: 7,
       day: "Sam",
       hours: [],
     },
   ],
-  fullName: "",
+  firstName: "",
+  lastName: "",
   email: "",
   password: "",
-  roles: "",
-  skils: "",
-  bio: "",
-  cv: "",
-  jobTitle: "",
-  externalLinks: "",
+  phone: "",
+  address: "",
+  description: "",
+  social: "",
+  wilaya: "",
+  commune: "",
+  social: "",
+  categorieId: null,
+  certificat: null,
+  loading: false,
+  error: false,
 };
+
+// check email
+export const checkEmail = createAsyncThunk(
+  "auth/checkEmail",
+  async (user, { rejectWithValue }) => {
+    try {
+      console.log(user);
+      const { email } = user;
+      const response = await axios.post(`${baseUrl}auth/check-email`, {
+        email: email,
+      });
+      console.log(response);
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
 // register
 export const register = createAsyncThunk(
   "auth/register",
   async (user, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/register", user);
+      console.log(user);
+      const {
+        firstName,
+        lastName,
+        email,
+        password,
+        phone,
+        address,
+        description,
+        social,
+        wilaya,
+        commune,
+        categorieId,
+        certificat,
+        position,
+      } = user;
+      const response = await axios.post(`${baseUrl}auth/register-lawyer`, {
+        fname: firstName,
+        lname: lastName,
+        email: email,
+        password: password,
+        phone: phone,
+        address: address,
+        description: description,
+        social: social,
+        wilaya_id: wilaya,
+        city_id: commune,
+        longitude: position[1],
+        latitude: position[0],
+        categorie_id: categorieId,
+      });
       console.log(response);
     } catch (error) {
+      console.log(error);
       return rejectWithValue(error.response.data);
     }
   },
@@ -72,7 +128,7 @@ export const login = createAsyncThunk(
       const response = await axios.post("/login", user);
       console.log(response);
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error);
     }
   },
 );
@@ -105,6 +161,34 @@ const authSlice = createSlice({
       }
       console.log(state.disponibility);
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(register.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(register.fulfilled, (state) => {
+      state.loading = false;
+      state.error = null;
+      state.activeStep = 2;
+    });
+    builder.addCase(register.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(checkEmail.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(checkEmail.fulfilled, (state) => {
+      state.loading = false;
+      state.error = null;
+      state.activeStep = 1;
+    });
+    builder.addCase(checkEmail.rejected, (state) => {
+      state.loading = false;
+      state.error = true;
+    });
   },
 });
 export const { setUser, setActivStep, setPostion, setDisponibility } =
