@@ -41,7 +41,8 @@ To begin contributing or testing the DZ Mouhami Frontend Application, follow the
 
 Below is a brief overview of the code structure and organization:
 
-- **`app` folder:** Contains all the routes of the application.
+- **`app` folder:** Contains all the routes of the application. Each route is a separate file. The `app` folder also contains the `_app.js` file, which is the entry point of the application.
+
 - **`components` folder:** Houses all the components of the application. It comprises several sub-folders, each dedicated to a feature. Additionally, there's a `ui` folder that holds common UI components.
 
 - **`store` folder:** Manages the Redux store of the application. Inside the `store` folder, there's a separate folder for each slice of the store.
