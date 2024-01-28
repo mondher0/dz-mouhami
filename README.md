@@ -43,7 +43,7 @@ Below is a brief overview of the code structure and organization:
 
 - **`app` folder:** Contains all the routes of the application.
   
-- **`components` folder:** Houses all the components of the application. It comprises several sub-folders, each dedicated to a feature. Additionally, there's a `ui` folder that holds common UI components.
+- **`components` folder:** Houses all the components of the application. It comprises several sub-folders, each dedicated to a feature. Additionally, there's a `ui` folder that holds shadecn UI components.
 
 - **`store` folder:** Manages the Redux store of the application. Inside the `store` folder, there's a separate folder for each slice of the store.
 
