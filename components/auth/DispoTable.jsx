@@ -1,7 +1,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
-import Check from "./Check";
 import { setDisponibility } from "../../store/features/auth/auth-slice";
+import { Check } from "lucide-react";
 
 const DispoTable = () => {
   const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];

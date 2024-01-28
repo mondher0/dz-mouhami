@@ -19,8 +19,8 @@ const PostReview = ({ id }) => {
       console.log(data);
       const token = getCookie("token");
       console.log(token);
-      const response = axios.post(`${baseUrl}reviews/add`, data, {
-        withCredentials: true,
+      const response = await axiosInstance.post(`${baseUrl}reviews/add`, data, {
+        withCredentials: false,
       });
       console.log(response);
     } catch (error) {

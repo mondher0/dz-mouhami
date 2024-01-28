@@ -14,7 +14,7 @@ const ProfilePage = async () => {
         headers: {
           Authorization: `Bearer ${token?.value}`,
         },
-      });
+      }); 
       const data = await response.json();
       return data;
     } catch (error) {

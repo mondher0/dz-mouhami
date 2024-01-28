@@ -3,12 +3,17 @@ import React from "react";
 import FormControl from "./FormControl";
 import { Button } from "../ui/button";
 import { useDispatch, useSelector } from "react-redux";
-import { register, setActivStep } from "../../store/features/auth/auth-slice";
+import {
+  register,
+  setActivStep,
+  setUser,
+} from "../../store/features/auth/auth-slice";
 import PdfAsset from "./PdfAsset";
 import DispoTable from "./DispoTable";
 import LocationMap from "./LocationMap";
 import { DropDown } from "./DropDown";
 import { CategoriesDropDown } from "./CategoriesDropDown";
+import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 
 const StepTwo = () => {
   const dispatch = useDispatch();
@@ -28,7 +33,15 @@ const StepTwo = () => {
     social,
     error,
     loading,
+    certificat,
   } = useSelector((state) => state.auth);
+
+  // useCalendlyEventListener({
+  //   onProfilePageViewed: () => console.log("onProfilePageViewed"),
+  //   onDateAndTimeSelected: (e) => console.log(e),
+  //   onEventTypeViewed: () => console.log("onEventTypeViewed"),
+  //   onEventScheduled: (e) => console.log(e.data.payload),
+  // });
   return (
     <>
       <h1 className="text-white text-center text-[30px] font-semibold">
@@ -62,6 +75,7 @@ const StepTwo = () => {
               social,
               wilaya,
               commune,
+              certificat,
             }),
           );
         }}
@@ -97,7 +111,16 @@ const StepTwo = () => {
             veuillez joindre votre certificat professionnel :
             <PdfAsset />
           </label>
-          <input type="file" id="pdf" className="opacity-0" />
+          <input
+            type="file"
+            id="pdf"
+            className="opacity-0"
+            onChange={(e) => {
+              dispatch(
+                setUser({ name: "certificat", value: e.target.files[0] }),
+              );
+            }}
+          />
           <p className="text-white text-[14px]">
             Ce certificat sera vérifié par nos administrateurs avant la
             validation de votre inscription
@@ -110,6 +133,9 @@ const StepTwo = () => {
           <LocationMap />
         </div>
         <DispoTable />
+        {/* <div className="App">
+          <InlineWidget url="https://calendly.com/m_mameri" />
+        </div> */}
         <Button size="lg">{loading ? "Loading..." : "Next"}</Button>
       </form>
     </>

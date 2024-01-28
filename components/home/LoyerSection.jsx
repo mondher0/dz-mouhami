@@ -1,9 +1,14 @@
-import React from "react";
+"use client";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const LoyerSection = () => {
+  const router = useRouter();
   return (
-    <section className="mt-[50px] flex flex-col justify-center items-start gap-10 p-[60px]">
+    <section
+      className="mt-[50px] flex flex-col justify-center items-start gap-10 p-[60px]"
+      id="avocat"
+    >
       <p className="text-[#FFC700] text-[30px] font-semibold">
         VOUS ETES AVOCAT
       </p>
@@ -17,7 +22,14 @@ const LoyerSection = () => {
         partie d'une communauté dédiée à l'excellence <br /> juridique.
       </p>
       <div className="flex items-center justify-center w-full">
-        <Button size="lg">JOIN US HERE</Button>
+        <Button
+          size="lg"
+          onClick={() => {
+            router.push("/loyer-login");
+          }}
+        >
+          JOIN US HERE
+        </Button>
       </div>
     </section>
   );

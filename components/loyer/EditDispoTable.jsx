@@ -1,4 +1,7 @@
 "use client";
+import { useDispatch, useSelector } from "react-redux";
+import { setDisponibility } from "../../store/features/auth/auth-slice";
+import { Check } from "lucide-react";
 
 const EditDispoTable = () => {
   const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
@@ -24,11 +27,10 @@ const EditDispoTable = () => {
       hour: "18:00-20:00",
     },
   ];
+  const { disponibility } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   return (
-    <div className="flex flex-col items-start justify-start gap-3 w-full">
-      <label className="text-[#FFC700] text-[24px] font-semibold">
-        TABLE DE TRAVAIL
-      </label>
+    <div className="flex flex-col items-center justify-center gap-3 w-full mt-6">
       <table className="table-auto border-collapse bg-gray-300 bg-opacity-20">
         <thead>
           <tr>
@@ -55,7 +57,14 @@ const EditDispoTable = () => {
                 <td
                   className="border border-[#001F3F] px-4 py-2 text-[#001F3F]"
                   key={dayIndex}
-                ></td>
+                  onClick={() => dispatch(setDisponibility({ hour, day }))}
+                >
+                  {disponibility[dayIndex].hours.includes(hour.hour) ? (
+                    <Check />
+                  ) : (
+                    ""
+                  )}
+                </td>
               ))}
             </tr>
           ))}

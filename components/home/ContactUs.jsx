@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const ContactUs = () => {
   return (
-    <section className="bg-white p-[30px]">
+    <section className="bg-white p-[30px]" id="contact">
       <p className="text-[#FFC700] text-[30px] font-semibold">PROBLEM ?</p>
       <div className="flex flex-col items-start justify-center m-[100px]">
         <h1 className="text-[#001F3F] text-[40px] font-bold ">CONTACT US</h1>

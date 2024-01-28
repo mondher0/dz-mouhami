@@ -10,7 +10,7 @@ const initialState = {
     {
       id: 1,
       day: "Dim",
-      hours: ["8:00-10:00"],
+      hours: [],
     },
     {
       id: 2,
@@ -98,21 +98,27 @@ export const register = createAsyncThunk(
         certificat,
         position,
       } = user;
-      const response = await axios.post(`${baseUrl}auth/register-lawyer`, {
-        fname: firstName,
-        lname: lastName,
-        email: email,
-        password: password,
-        phone: phone,
-        address: address,
-        description: description,
-        social: social,
-        wilaya_id: wilaya,
-        city_id: commune,
-        longitude: position[1],
-        latitude: position[0],
-        categorie_id: categorieId,
-      });
+      console.log(user);
+      const formData = new FormData();
+      formData.append("certificat", certificat);
+      formData.append("fname", firstName);
+      formData.append("lname", lastName);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("phone", phone);
+      formData.append("address", address);
+      formData.append("description", description);
+      formData.append("social", social);
+      formData.append("wilaya_id", wilaya);
+      formData.append("city_id", commune);
+      formData.append("longitude", position[1]);
+      formData.append("latitude", position[0]);
+      formData.append("categorie_id", categorieId);
+
+      const response = await axios.post(
+        `${baseUrl}auth/register-lawyer`,
+        formData,
+      );
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -134,6 +140,8 @@ export const login = createAsyncThunk(
       });
       console.log(response.data);
       setCookie("token", response.data.token);
+      if (typeof window === "undefined") return;
+      window.location.href = "/loyer/10";
       return response.data;
     } catch (error) {
       console.log(error);
@@ -185,6 +193,7 @@ const authSlice = createSlice({
     builder.addCase(register.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
+      state.activeStep = 2;
     });
     builder.addCase(checkEmail.pending, (state) => {
       state.loading = true;

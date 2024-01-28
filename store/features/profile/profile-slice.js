@@ -36,8 +36,11 @@ export const updateLoyer = createAsyncThunk(
     }
     try {
       const response = await axiosInstance.patch(
-        `${baseUrl}lawyers/lawyer/update`,
+        `${baseUrl}lawyers/update/lawyer`,
         data,
+        {
+          withCredentials: true,
+        },
       );
       console.log(response.data);
       return response.data;

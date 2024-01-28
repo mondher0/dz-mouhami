@@ -15,7 +15,7 @@ const SingleLoyerPage = async ({ params }) => {
   // get lowyer
   const getLoyer = async () => {
     try {
-      const response = await fetch(`${baseUrl}lawyers/${id}`, {
+      const response = await fetch(`${baseUrl}lawyers/lawyer/${id}`, {
         cache: "no-cache",
       });
       const data = await response.json();
@@ -46,7 +46,7 @@ const SingleLoyerPage = async ({ params }) => {
     lowyerReviewsData,
   ]);
 
-  console.log(lowyer);
+  console.log(lowyerReviews);
   return (
     <main className="bg-white p-[30px]">
       <LoyerCard lowyer={lowyer} />

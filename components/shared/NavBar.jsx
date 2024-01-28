@@ -3,15 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { deleteCookie, getCookie } from "cookies-next";
 
 const NavBar = () => {
   const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "AVOCAT?", href: "/" },
-    { name: "ABOUT", href: "/" },
-    { name: "CONTACT", href: "/" },
+    { name: "HOME", href: "#home" },
+    { name: "AVOCAT?", href: "#avocat" },
+    { name: "ABOUT", href: "#about" },
+    { name: "CONTACT", href: "#contact" },
   ];
   const router = useRouter();
+  const token = getCookie("token");
   return (
     <header className="container flex justify-between items-center">
       <div
@@ -26,17 +28,26 @@ const NavBar = () => {
         {navLinks.map((navLink, index) => {
           return (
             <li key={index} className="text-[#FFF] text-[18px] font-bold">
-              <Link href={navLink.href}>{navLink.name}</Link>
+              <a href={navLink.href}>{navLink.name}</a>
             </li>
           );
         })}
       </ul>
+
       <Button
+        size="lg"
         onClick={() => {
-          router.push("/register");
+          if (token) {
+            deleteCookie("token");
+            if (typeof window !== "undefined") return;
+            window.location.href = "/";
+            window.location.reload();
+          } else {
+            router.push("/login");
+          }
         }}
       >
-        SIGN IN
+        {token ? "Logout" : "SIGN IN"}
       </Button>
     </header>
   );

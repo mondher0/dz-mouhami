@@ -25,6 +25,7 @@
     "rc-progress": "^3.5.1",
     "react": "^18",
     "react-calendar": "^4.8.0",
+    "react-calendly": "^4.3.0",
     "react-dom": "^18",
     "react-form-stepper": "^2.0.3",
     "react-icons": "^4.12.0",
