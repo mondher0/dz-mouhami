@@ -4,7 +4,7 @@ Welcome to the repository for the DZ Mouhami Frontend Application! This applicat
 
 ### Repository Links
 
-- **Frontend Repo:** [https://github.com/mondher0/dz-mouhami-admin-pannel](https://github.com/mondher0/dz-mouhami-admin-pannel)
+- **Frontend Admin pannel Repo:** [https://github.com/mondher0/dz-mouhami-admin-pannel](https://github.com/mondher0/dz-mouhami-admin-pannel)
 - **Backend Repo:** [https://github.com/1FarZ1/DZ_MOUHAMI/](https://github.com/1FarZ1/DZ_MOUHAMI/)
 
 ### Getting Started
