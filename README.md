@@ -55,7 +55,7 @@ Below is a brief overview of the code structure and organization:
 
 - **`Dockerfile`:** Contains Docker commands to build and run the application within a Docker container.
 
--**`jest.config.js`:** Configuration file for Jest testing framework it contains the setup for the test environment and the test coverage.
+- **`jest.config.js`:** Configuration file for Jest testing framework it contains the setup for the test environment and the test coverage.
 
 Feel free to explore the codebase further and contribute as needed. If you have any questions or need assistance, don't hesitate to reach out!
 
