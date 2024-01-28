@@ -1,4 +1,4 @@
-Frontend admin panel repo link to [https://github.com/mondher0/dz-mouhami-admin]<br/>
+Frontend admin panel repo link to [https://github.com/mondher0/dz-mouhami-admin-pannel]<br/>
 backend repo link to [https://github.com/1FarZ1/DZ_MOUHAMI/]
 
 ## Getting Started
